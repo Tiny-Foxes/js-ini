@@ -46,7 +46,7 @@ export function parse(data: string, params?: IParseConfig): IIniObject {
   for (const rawLine of lines) {
     lineNumber += 1;
     const line: string = rawLine.trim();
-    if ((line.length === 0) || (line.startsWith(comment))) {
+    if ((line.length === 0) || (line.startsWith(comment)) || (line.startsWith('#')) {
       continue;
     } else if (line[0] === '[') {
       const match = line.match(sectionNameRegex);
